@@ -1,4 +1,5 @@
-﻿using ReadingIsGood.Infrastructure.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using ReadingIsGood.Infrastructure.Data;
 
 namespace ReadingIsGood.Api.Extensions;
 
@@ -10,8 +11,11 @@ public static class MigrationManager
         {
             try
             {
-                var orderContext = scope.ServiceProvider.GetRequiredService<OrderContext>();
-                
+                var appDbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                if (appDbContext.Database.ProviderName != "Microsoft.EntityFrameworkCore.InMemory")
+                {
+                    appDbContext.Database.Migrate();
+                }
             }
             catch (Exception e)
             {
