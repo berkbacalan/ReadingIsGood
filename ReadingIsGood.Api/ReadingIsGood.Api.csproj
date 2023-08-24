@@ -22,4 +22,8 @@
       <Folder Include="Controllers\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ReadingIsGood.Infrastructure\ReadingIsGood.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>
