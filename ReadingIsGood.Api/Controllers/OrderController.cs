@@ -18,39 +18,27 @@ public class OrderController : ControllerBase
     {
         _mediator = mediator;
     }
-    
-    [HttpGet("GetOrdersByCustomerId/{customerId}")]
-    [ProducesResponseType(typeof(IEnumerable<OrderResponse>), (int)HttpStatusCode.OK)]
+
+    [HttpGet("GetOrderDetailsById/{orderId}")]
+    [ProducesResponseType(typeof(OrderResponse), (int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
-    public async Task<ActionResult<IEnumerable<OrderResponse>>> GetOrdersByCustomerId(int customerId)
+    public async Task<ActionResult<OrderResponse>> GetOrderDetailsById(int orderId)
     {
-        var query = new GetOrdersByCustomerIdQuery(customerId);
-        var orders = await _mediator.Send(query);
+        var query = new GetOrderByIdQuery(orderId);
+        var order = await _mediator.Send(query);
 
-        if (!orders.Any())
-        {
-            return NotFound();
-        }
-
-        return Ok(orders);
+        return Ok(order);
     }
 
-    [HttpPost]
+    [HttpPost("Create")]
     [ProducesResponseType(typeof(OrderResponse), (int)HttpStatusCode.OK)]
     public async Task<ActionResult<OrderResponse>> OrderCreate([FromBody] OrderCreateCommand command)
     {
-        try
+        var result = await _mediator.Send(command);
+        if (result.IsSuccessful)
         {
-            var result = await _mediator.Send(command);
             return Ok(result);
         }
-        catch (ValidationException ve)
-        {
-            return ValidationProblem();
-        }
-        catch (Exception e)
-        {
-            return Problem();
-        }
+        return BadRequest(result.Error);
     }
 }

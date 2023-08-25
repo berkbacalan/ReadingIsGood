@@ -7,7 +7,6 @@ public class OrderCreateValidator : AbstractValidator<OrderCreateCommand>
 {
     public OrderCreateValidator()
     {
-        // RuleFor(v => v.Id).NotEmpty();
         RuleFor(v => v.OrderDate).NotEmpty();
         RuleFor(v => v.CustomerId).NotEmpty();
         RuleFor(v => v.OrderDate).NotEmpty();
