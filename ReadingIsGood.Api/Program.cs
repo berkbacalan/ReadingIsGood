@@ -1,3 +1,4 @@
+using Microsoft.OpenApi.Models;
 using ReadingIsGood.Api.Extensions;
 using ReadingIsGood.Application;
 using ReadingIsGood.Infrastructure;
@@ -11,7 +12,10 @@ builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo{ Title = "Order API", Version = "v1"});
+});
 
 var app = builder.Build();
 app.MigrateDatabase();
@@ -20,7 +24,10 @@ app.MigrateDatabase();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Order API V1");
+    });
 }
 
 app.UseHttpsRedirection();
