@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.ComponentModel.DataAnnotations;
+using AutoMapper;
 using MediatR;
 using ReadingIsGood.Application.Commands.OrderCreate;
 using ReadingIsGood.Application.Responses;
@@ -25,7 +26,7 @@ public class OrderCreateHandler : IRequestHandler<OrderCreateCommand, OrderRespo
             var orderEntity = _mapper.Map<Order>(request);
             if (orderEntity == null)
             {
-                throw new ApplicationException("Order Entity could not mapped");
+                throw new ValidationException("Order Entity could not mapped");
             }
 
             var order = await _orderRepository.AddAsync(orderEntity);
@@ -35,9 +36,7 @@ public class OrderCreateHandler : IRequestHandler<OrderCreateCommand, OrderRespo
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Error happened during creating the order for {request}, Error: {e}");
+            throw new ApplicationException($"Error happened during Order creation, Error: {e}");
         }
-
-        return new OrderResponse();
     }
 }

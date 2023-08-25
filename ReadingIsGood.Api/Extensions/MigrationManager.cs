@@ -19,7 +19,7 @@ public static class MigrationManager
             }
             catch (Exception e)
             {
-                throw;
+                Console.WriteLine($"Error during the Migration, Error: {e}");
             }
         }
         return host;
