@@ -20,6 +20,7 @@ public static class DependencyInjection
         {
             cfg.ShouldMapProperty = p => p.GetMethod.IsPublic || p.GetMethod.IsAssembly;
             cfg.AddProfile<CustomerMappingProfile>();
+            cfg.AddProfile<BookMappingProfile>();
             cfg.AddProfile<OrderMappingProfile>();
         });
         var mapper = config.CreateMapper();
