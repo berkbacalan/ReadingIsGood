@@ -15,4 +15,13 @@
       <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="PipelineBehaviours\" />
+      <Folder Include="Queries\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ReadingIsGood.Domain\ReadingIsGood.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
