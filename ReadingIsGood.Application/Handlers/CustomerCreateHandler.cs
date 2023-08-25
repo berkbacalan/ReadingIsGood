@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using MediatR;
 using ReadingIsGood.Application.Commands.CustomerCreate;
 using ReadingIsGood.Application.Responses;
@@ -25,7 +26,7 @@ public class CustomerCreateHandler : IRequestHandler<CustomerCreateCommand, Cust
             var customerEntity = _mapper.Map<Customer>(request);
             if (customerEntity == null)
             {
-                throw new ApplicationException("Customer Entity could not mapped");
+                return new CustomerResponse { IsSuccessful = false, Error = "Entity could not mapped." };
             }
 
             var customer = await _customerRepository.AddAsync(customerEntity);
@@ -35,9 +36,7 @@ public class CustomerCreateHandler : IRequestHandler<CustomerCreateCommand, Cust
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Error happened during registering the customer for customer: {request}, Error: {e}");
+            return new CustomerResponse { IsSuccessful = false, Error = $"Unknown error occured. Error: {e}" };
         }
-
-        return new CustomerResponse();
     }
 }
