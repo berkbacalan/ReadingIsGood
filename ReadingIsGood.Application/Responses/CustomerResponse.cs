@@ -1,9 +1,7 @@
 ﻿namespace ReadingIsGood.Application.Responses;
 
-public class CustomerResponse
+public class CustomerResponse : BaseResponse
 {
-    public bool IsSuccessful { get; set; }
-    public string Error { get; set; }
     public int Id { get; set; }
     public string Email { get; set; } = "";
 }

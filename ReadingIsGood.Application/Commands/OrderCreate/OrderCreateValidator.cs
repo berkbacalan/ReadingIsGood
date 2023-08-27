@@ -10,7 +10,7 @@ public class OrderCreateValidator : AbstractValidator<OrderCreateCommand>
         RuleFor(v => v.OrderDate).NotEmpty();
         RuleFor(v => v.CustomerId).NotEmpty();
         RuleFor(v => v.OrderDate).NotEmpty();
-        RuleFor(v => v.OrderDate > DateTime.Now);
+        RuleFor(v => v.OrderDate > DateTime.UtcNow);
         RuleFor(v => v.OrderItems.Count).GreaterThanOrEqualTo(0);
     }
 }

@@ -45,6 +45,7 @@ public class Repository<T> : IRepository<T> where T : Entity
 
     public async Task UpdateAsync(T entity)
     {
+        entity.UpdatedOn = DateTime.UtcNow;
         _dbContext.Set<T>().Update(entity);
         _dbContext.Entry(entity).State = EntityState.Modified;
         await _dbContext.SaveChangesAsync();

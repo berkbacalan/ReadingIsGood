@@ -16,7 +16,8 @@ public class OrderCreateHandler : IRequestHandler<OrderCreateCommand, OrderRespo
     private readonly ICustomerRepository _customerRepository;
     private readonly IMapper _mapper;
 
-    public OrderCreateHandler(IOrderRepository orderRepository, IBookRepository bookRepository, ICustomerRepository customerRepository, IMapper mapper)
+    public OrderCreateHandler(IOrderRepository orderRepository, IBookRepository bookRepository,
+        ICustomerRepository customerRepository, IMapper mapper)
     {
         _orderRepository = orderRepository;
         _bookRepository = bookRepository;
@@ -33,24 +34,27 @@ public class OrderCreateHandler : IRequestHandler<OrderCreateCommand, OrderRespo
                 var orderEntity = _mapper.Map<Order>(request);
                 if (orderEntity == null)
                 {
-                    return new OrderResponse{IsSuccessful = false, Error = "Order Entity could not be mapped."};
+                    return new OrderResponse { IsSuccessful = false, Error = "Order Entity could not be mapped." };
                 }
 
-                try
+
+                var customer = await _customerRepository.GetByIdAsync(request.CustomerId);
+                if (customer is null)
                 {
-                    var customer = await _customerRepository.GetByIdAsync(request.CustomerId);
+                    return new OrderResponse { IsSuccessful = false, Error = "Customer could not found." };
                 }
-                catch (Exception e)
-                {
-                    return new OrderResponse{IsSuccessful = false, Error = "Customer could not found."};
-                }
+
 
                 foreach (var orderItem in request.OrderItems)
                 {
                     var book = await _bookRepository.GetByIdAsync(orderItem.BookId);
+                    if (book is null)
+                    {
+                        return new OrderResponse { IsSuccessful = false, Error = $"Could not find book with id: {orderItem.BookId}" };
+                    }
                     if (book.StockQuantity < orderItem.Quantity)
                     {
-                        return new OrderResponse{IsSuccessful = false, Error = "Not enough stocks were found."};
+                        return new OrderResponse { IsSuccessful = false, Error = $"Not enough stocks were found for book id: {orderItem.BookId}." };
                     }
                 }
 
@@ -72,7 +76,8 @@ public class OrderCreateHandler : IRequestHandler<OrderCreateCommand, OrderRespo
             catch (Exception e)
             {
                 scope.Dispose();
-                return new OrderResponse{IsSuccessful = false, Error = $"Error happened during Order creation, Error: {e}"};
+                return new OrderResponse
+                    { IsSuccessful = false, Error = $"Error happened during Order creation, Error: {e}" };
             }
         }
     }

@@ -32,6 +32,7 @@ public class CustomerCreateHandler : IRequestHandler<CustomerCreateCommand, Cust
             var customer = await _customerRepository.AddAsync(customerEntity);
 
             var customerResponse = _mapper.Map<CustomerResponse>(customer);
+            customerResponse.IsSuccessful = true;
             return customerResponse;
         }
         catch (Exception e)

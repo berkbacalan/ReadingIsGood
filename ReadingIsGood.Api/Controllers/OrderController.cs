@@ -41,4 +41,14 @@ public class OrderController : ControllerBase
         }
         return BadRequest(result.Error);
     }
+    
+    [HttpGet("GetOrdersByDate")]
+    [ProducesResponseType(typeof(OrderResponse), (int)HttpStatusCode.OK)]
+    public async Task<ActionResult<OrderResponse>> GetOrdersByDate([FromQuery] DateTime? startDate = null, [FromQuery] DateTime? endDate = null)
+    {
+        var query = new GetOrdersByDateQuery(startDate, endDate);
+        var order = await _mediator.Send(query);
+
+        return Ok(order);
+    }
 }
