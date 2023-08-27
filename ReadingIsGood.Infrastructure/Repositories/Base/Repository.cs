@@ -24,13 +24,7 @@ public class Repository<T> : IRepository<T> where T : Entity
         return await _dbContext.Set<T>().Where(predicate).ToListAsync();
     }
 
-    public Task<IEnumerable<T>> GetAsync(Expression<Func<T, bool>> predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string? includeString = null,
-        bool disableTracking = true)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<T> GetByIdAsync(int id)
+    public async Task<T?> GetByIdAsync(int id)
     {
         return await _dbContext.Set<T>().FindAsync(id);
     }

@@ -29,7 +29,7 @@ public class CustomerController : ControllerBase
             return Ok(result);
         }
 
-        return Problem(result.Error);
+        return BadRequest(result.Error);
     }
     
     [HttpGet("GetOrdersByCustomerId/{customerId}")]

@@ -25,6 +25,11 @@ public class BookUpdateHandler : IRequestHandler<BookUpdateCommand, BookResponse
         try
         {
             var book = await _bookRepository.GetByIdAsync(request.BookId);
+            if (book is null)
+            {
+                return new BookResponse
+                    { IsSuccessful = false, Error = $"Book could not found with given Id: {request.BookId}" };
+            }
             book.StockQuantity = request.StockQuantity;
             await _bookRepository.UpdateAsync(book);
 
@@ -32,11 +37,6 @@ public class BookUpdateHandler : IRequestHandler<BookUpdateCommand, BookResponse
             response.IsSuccessful = true;
             return response;
             
-        }
-        catch (DataException e)
-        {
-            return new BookResponse
-                { IsSuccessful = false, Error = $"Book could not found with given Id: {request.BookId}" };
         }
         catch (Exception e)
         {

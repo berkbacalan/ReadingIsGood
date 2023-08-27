@@ -21,7 +21,6 @@ public class OrderController : ControllerBase
 
     [HttpGet("GetOrderDetailsById/{orderId}")]
     [ProducesResponseType(typeof(OrderResponse), (int)HttpStatusCode.OK)]
-    [ProducesResponseType((int)HttpStatusCode.NotFound)]
     public async Task<ActionResult<OrderResponse>> GetOrderDetailsById(int orderId)
     {
         var query = new GetOrderByIdQuery(orderId);
@@ -32,6 +31,7 @@ public class OrderController : ControllerBase
 
     [HttpPost("Create")]
     [ProducesResponseType(typeof(OrderResponse), (int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     public async Task<ActionResult<OrderResponse>> OrderCreate([FromBody] OrderCreateCommand command)
     {
         var result = await _mediator.Send(command);

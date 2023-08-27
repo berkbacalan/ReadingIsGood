@@ -39,13 +39,12 @@ public class BookController : ControllerBase
             return Ok(result);
         }
 
-        return Problem(result.Error);
+        return BadRequest(result.Error);
     }
 
     [HttpPost("Update")]
     [ProducesResponseType(typeof(BookResponse), (int)HttpStatusCode.OK)]
-    [ProducesResponseType((int)HttpStatusCode.NotFound)]
-    [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+    [ProducesResponseType((int)HttpStatusCode.OK)]
     public async Task<ActionResult<BookResponse>> BookUpdate([FromBody] BookUpdateCommand command)
     {
         var result = await _mediator.Send(command);
@@ -54,6 +53,6 @@ public class BookController : ControllerBase
             return Ok(result);
         }
 
-        return Problem(result.Error);
+        return BadRequest(result.Error);
     }
 }

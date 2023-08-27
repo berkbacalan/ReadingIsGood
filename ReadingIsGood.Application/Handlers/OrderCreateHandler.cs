@@ -44,9 +44,17 @@ public class OrderCreateHandler : IRequestHandler<OrderCreateCommand, OrderRespo
                     return new OrderResponse { IsSuccessful = false, Error = "Customer could not found." };
                 }
 
-
+                double totalAmount = 0;
                 foreach (var orderItem in request.OrderItems)
                 {
+                    if (orderItem.Quantity <= 0)
+                    {
+                        return new OrderResponse
+                        {
+                            IsSuccessful = false,
+                            Error = "Invalid operation. Quantity should be greater than 0 for all items."
+                        };
+                    }
                     var book = await _bookRepository.GetByIdAsync(orderItem.BookId);
                     if (book is null)
                     {
@@ -56,13 +64,26 @@ public class OrderCreateHandler : IRequestHandler<OrderCreateCommand, OrderRespo
                     {
                         return new OrderResponse { IsSuccessful = false, Error = $"Not enough stocks were found for book id: {orderItem.BookId}." };
                     }
+
+                    totalAmount += orderItem.Quantity * book.BookPrice;
                 }
 
+                if (totalAmount <= 0)
+                {
+                    return new OrderResponse
+                        { IsSuccessful = false, Error = "Total Order amount could not be equal or less than 0." };
+                }
+
+                orderEntity.TotalAmount = totalAmount;
                 var order = await _orderRepository.AddAsync(orderEntity);
 
                 foreach (var orderItem in request.OrderItems)
                 {
                     var book = await _bookRepository.GetByIdAsync(orderItem.BookId);
+                    if (book is null)
+                    {
+                        return new OrderResponse { IsSuccessful = false, Error = $"Could not find book with id: {orderItem.BookId}" };
+                    }
                     book.StockQuantity -= orderItem.Quantity;
                     await _bookRepository.UpdateAsync(book);
                 }

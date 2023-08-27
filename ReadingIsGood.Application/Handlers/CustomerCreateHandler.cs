@@ -23,6 +23,12 @@ public class CustomerCreateHandler : IRequestHandler<CustomerCreateCommand, Cust
     {
         try
         {
+            var customerExisting = await _customerRepository.GetCustomerByEmail(request.Email);
+            if (customerExisting is not null)
+            {
+                return new CustomerResponse
+                    { IsSuccessful = false, Error = $"Customer already exists with email: {request.Email}" };
+            }
             var customerEntity = _mapper.Map<Customer>(request);
             if (customerEntity == null)
             {
