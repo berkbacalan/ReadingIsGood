@@ -33,18 +33,35 @@ public class CustomerController : ControllerBase
     }
     
     [HttpGet("GetOrdersByCustomerId/{customerId}")]
-    [ProducesResponseType(typeof(IEnumerable<OrderResponse>), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(PagedResponse<OrderResponse>), (int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
-    public async Task<ActionResult<IEnumerable<OrderResponse>>> GetOrdersByCustomerId(int customerId)
+    public async Task<ActionResult<PagedResponse<OrderResponse>>> GetOrdersByCustomerId(int customerId, int page = 1, int pageSize = 10)
     {
         var query = new GetOrdersByCustomerIdQuery(customerId);
         var orders = await _mediator.Send(query);
 
-        if (!orders.Any())
+        var orderResponses = orders as OrderResponse[] ?? orders.ToArray();
+        if (!orderResponses.Any())
         {
             return NotFound();
         }
 
-        return Ok(orders);
+        var totalItems = orderResponses.Count();
+        var totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
+
+        var pagedOrders = orderResponses.Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+
+        var response = new PagedResponse<OrderResponse>
+        {
+            Data = pagedOrders,
+            PageNumber = page,
+            PageSize = pageSize,
+            TotalItems = totalItems,
+            TotalPages = totalPages
+        };
+
+        return Ok(response);
     }
 }
