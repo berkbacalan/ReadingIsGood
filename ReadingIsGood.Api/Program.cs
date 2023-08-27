@@ -14,21 +14,18 @@ builder.Services.AddApplication();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo{ Title = "Order API", Version = "v1"});
+    c.SwaggerDoc("v1", new OpenApiInfo{ Title = "ReadingIsGood API", Version = "v1"});
 });
 
 var app = builder.Build();
 app.MigrateDatabase();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Order API V1");
-    });
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Order API V1");
+});
 
 app.UseHttpsRedirection();
 

@@ -1,0 +1,859 @@
+{
+	"info": {
+		"_postman_id": "8cab968b-80c1-49d9-9676-b252f67b30f0",
+		"name": "ReadingIsGood API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7907620"
+	},
+	"item": [
+		{
+			"name": "api/v1",
+			"item": [
+				{
+					"name": "Book",
+					"item": [
+						{
+							"name": "/api/v1/Book/GetAllBooks",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Book/GetAllBooks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Book",
+										"GetAllBooks"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Book/GetAllBooks",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Book",
+												"GetAllBooks"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"error\": \"occaecat voluptate culpa\",\n    \"isSuccessful\": true,\n    \"createdOn\": \"1998-08-22T05:03:31.688Z\",\n    \"updatedOn\": \"2019-02-12T07:42:57.910Z\",\n    \"id\": -13705466,\n    \"title\": \"nulla in reprehenderit\",\n    \"stockQuantity\": 68325896,\n    \"bookPrice\": -34500552.31214932\n  },\n  {\n    \"error\": \"nulla laborum id\",\n    \"isSuccessful\": true,\n    \"createdOn\": \"2006-08-28T02:09:54.393Z\",\n    \"updatedOn\": \"1992-10-25T13:58:54.541Z\",\n    \"id\": 19784498,\n    \"title\": \"sed cillum mollit occaecat\",\n    \"stockQuantity\": 22626644,\n    \"bookPrice\": -95491390.79506466\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "/api/v1/Book/Create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"cupidatat ullamco voluptate reprehenderit\",\n  \"stockQuantity\": -14939687,\n  \"bookPrice\": 25210429.593015775\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Book/Create",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Book",
+										"Create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"cupidatat ullamco voluptate reprehenderit\",\n  \"stockQuantity\": -14939687,\n  \"bookPrice\": 25210429.593015775\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Book/Create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Book",
+												"Create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"irure ex sunt\",\n  \"isSuccessful\": false,\n  \"createdOn\": \"1985-01-16T00:48:47.590Z\",\n  \"updatedOn\": \"1954-07-29T07:56:43.175Z\",\n  \"id\": 13570582,\n  \"title\": \"labore Excepteur ex non\",\n  \"stockQuantity\": 28131255,\n  \"bookPrice\": 46956682.92879552\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/v1/Book/Update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"bookId\": -60739180,\n  \"stockQuantity\": 24704373\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Book/Update",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Book",
+										"Update"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"bookId\": -60739180,\n  \"stockQuantity\": 24704373\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Book/Update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Book",
+												"Update"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"irure ex sunt\",\n  \"isSuccessful\": false,\n  \"createdOn\": \"1985-01-16T00:48:47.590Z\",\n  \"updatedOn\": \"1954-07-29T07:56:43.175Z\",\n  \"id\": 13570582,\n  \"title\": \"labore Excepteur ex non\",\n  \"stockQuantity\": 28131255,\n  \"bookPrice\": 46956682.92879552\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Customer",
+					"item": [
+						{
+							"name": "/api/v1/Customer/Create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"mollit sint in aliquip\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Customer/Create",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Customer",
+										"Create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"mollit sint in aliquip\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Customer/Create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Customer",
+												"Create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"cupidatat adipisicing aliqua amet\",\n  \"isSuccessful\": true,\n  \"createdOn\": \"2002-12-16T21:14:34.326Z\",\n  \"updatedOn\": \"2018-07-26T21:02:19.983Z\",\n  \"id\": 35389652,\n  \"email\": \"nostrud reprehenderit dol\"\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/v1/Customer/GetOrdersByCustomerId/:customerId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Customer/GetOrdersByCustomerId/:customerId?page=1&pageSize=10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Customer",
+										"GetOrdersByCustomerId",
+										":customerId"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									],
+									"variable": [
+										{
+											"key": "customerId",
+											"value": "-6038455",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Customer/GetOrdersByCustomerId/:customerId?page=1&pageSize=10",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Customer",
+												"GetOrdersByCustomerId",
+												":customerId"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "10"
+												}
+											],
+											"variable": [
+												{
+													"key": "customerId",
+													"value": "-6038455",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"data\": [\n    {\n      \"error\": \"ipsum Lorem exercitation\",\n      \"isSuccessful\": false,\n      \"createdOn\": \"2003-06-16T18:06:45.821Z\",\n      \"updatedOn\": \"1985-08-15T02:35:59.112Z\",\n      \"id\": -20663614,\n      \"customerId\": 66089548,\n      \"totalAmount\": -43382157.24091503,\n      \"orderItems\": [\n        {\n          \"id\": 85609707,\n          \"createdOn\": \"1960-02-23T00:52:24.746Z\",\n          \"updatedOn\": \"2016-03-23T20:43:24.972Z\",\n          \"bookId\": -40724782,\n          \"quantity\": -24047739\n        },\n        {\n          \"id\": -75967310,\n          \"createdOn\": \"1975-07-18T03:24:49.143Z\",\n          \"updatedOn\": \"2015-08-03T08:13:44.341Z\",\n          \"bookId\": 28892246,\n          \"quantity\": 50999722\n        }\n      ]\n    },\n    {\n      \"error\": \"amet\",\n      \"isSuccessful\": true,\n      \"createdOn\": \"1998-08-07T12:13:33.427Z\",\n      \"updatedOn\": \"2008-12-19T07:28:01.076Z\",\n      \"id\": -31514703,\n      \"customerId\": 49502698,\n      \"totalAmount\": 6016528.197402015,\n      \"orderItems\": [\n        {\n          \"id\": -39837053,\n          \"createdOn\": \"1975-12-14T07:01:22.459Z\",\n          \"updatedOn\": \"1946-10-28T23:56:06.813Z\",\n          \"bookId\": 92542633,\n          \"quantity\": -54880140\n        },\n        {\n          \"id\": -57725209,\n          \"createdOn\": \"1997-05-01T06:42:04.733Z\",\n          \"updatedOn\": \"1948-02-19T20:37:46.022Z\",\n          \"bookId\": 89798697,\n          \"quantity\": -81610458\n        }\n      ]\n    }\n  ],\n  \"pageNumber\": 82986343,\n  \"pageSize\": 73847979,\n  \"totalItems\": 10230816,\n  \"totalPages\": 78306557\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Customer/GetOrdersByCustomerId/:customerId?page=1&pageSize=10",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Customer",
+												"GetOrdersByCustomerId",
+												":customerId"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "10"
+												}
+											],
+											"variable": [
+												{
+													"key": "customerId",
+													"value": "-6038455",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"do veniam ea est\",\n  \"title\": \"id ut\",\n  \"status\": 48463522,\n  \"detail\": \"consequat \",\n  \"instance\": \"esse officia ipsum ad\",\n  \"consequat3__\": {},\n  \"dolorb\": {}\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "/api/v1/Order/GetOrderDetailsById/:orderId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Order/GetOrderDetailsById/:orderId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Order",
+										"GetOrderDetailsById",
+										":orderId"
+									],
+									"variable": [
+										{
+											"key": "orderId",
+											"value": "-6038455",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Order/GetOrderDetailsById/:orderId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Order",
+												"GetOrderDetailsById",
+												":orderId"
+											],
+											"variable": [
+												{
+													"key": "orderId",
+													"value": "-6038455",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"consequat tempor cillum id\",\n  \"isSuccessful\": true,\n  \"createdOn\": \"2010-04-28T18:53:04.605Z\",\n  \"updatedOn\": \"2009-02-23T18:25:25.898Z\",\n  \"id\": -75369666,\n  \"customerId\": 76244843,\n  \"totalAmount\": 73575756.64876896,\n  \"orderItems\": [\n    {\n      \"id\": -5167941,\n      \"createdOn\": \"1944-11-23T19:22:40.441Z\",\n      \"updatedOn\": \"2006-10-18T03:09:50.543Z\",\n      \"bookId\": 47396345,\n      \"quantity\": 27553291\n    },\n    {\n      \"id\": -91676783,\n      \"createdOn\": \"1974-05-17T21:54:26.432Z\",\n      \"updatedOn\": \"1975-04-18T16:58:05.574Z\",\n      \"bookId\": 53136901,\n      \"quantity\": 5115782\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/v1/Order/Create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"customerId\": -94478022,\n  \"orderItems\": [\n    {\n      \"id\": -96273883,\n      \"updatedOn\": \"2019-08-16T19:56:36.242Z\",\n      \"bookId\": 55620267,\n      \"quantity\": 20475043\n    },\n    {\n      \"id\": -96098720,\n      \"updatedOn\": \"2004-08-08T02:52:20.348Z\",\n      \"bookId\": 51764033,\n      \"quantity\": 72035758\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Order/Create",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Order",
+										"Create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"customerId\": -59725551,\n  \"orderItems\": [\n    {\n      \"id\": 85903182,\n      \"updatedOn\": \"1968-08-08T19:54:16.385Z\",\n      \"bookId\": -55497301,\n      \"quantity\": 72287494\n    },\n    {\n      \"id\": 70072704,\n      \"updatedOn\": \"1958-04-15T00:06:17.815Z\",\n      \"bookId\": 95800292,\n      \"quantity\": -73834620\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Order/Create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Order",
+												"Create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"consequat tempor cillum id\",\n  \"isSuccessful\": true,\n  \"createdOn\": \"2010-04-28T18:53:04.605Z\",\n  \"updatedOn\": \"2009-02-23T18:25:25.898Z\",\n  \"id\": -75369666,\n  \"customerId\": 76244843,\n  \"totalAmount\": 73575756.64876896,\n  \"orderItems\": [\n    {\n      \"id\": -5167941,\n      \"createdOn\": \"1944-11-23T19:22:40.441Z\",\n      \"updatedOn\": \"2006-10-18T03:09:50.543Z\",\n      \"bookId\": 47396345,\n      \"quantity\": 27553291\n    },\n    {\n      \"id\": -91676783,\n      \"createdOn\": \"1974-05-17T21:54:26.432Z\",\n      \"updatedOn\": \"1975-04-18T16:58:05.574Z\",\n      \"bookId\": 53136901,\n      \"quantity\": 5115782\n    }\n  ]\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"customerId\": -59725551,\n  \"orderItems\": [\n    {\n      \"id\": 85903182,\n      \"updatedOn\": \"1968-08-08T19:54:16.385Z\",\n      \"bookId\": -55497301,\n      \"quantity\": 72287494\n    },\n    {\n      \"id\": 70072704,\n      \"updatedOn\": \"1958-04-15T00:06:17.815Z\",\n      \"bookId\": 95800292,\n      \"quantity\": -73834620\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Order/Create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Order",
+												"Create"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"do veniam ea est\",\n  \"title\": \"id ut\",\n  \"status\": 48463522,\n  \"detail\": \"consequat \",\n  \"instance\": \"esse officia ipsum ad\",\n  \"consequat3__\": {},\n  \"dolorb\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/v1/Order/GetOrdersByDate",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Order/GetOrdersByDate?startDate=1953-04-03T06:03:09.414Z&endDate=1953-04-03T06:03:09.414Z",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Order",
+										"GetOrdersByDate"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": "1953-04-03T06:03:09.414Z"
+										},
+										{
+											"key": "endDate",
+											"value": "1953-04-03T06:03:09.414Z"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Order/GetOrdersByDate?startDate=1953-04-03T06:03:09.414Z&endDate=1953-04-03T06:03:09.414Z",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Order",
+												"GetOrdersByDate"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": "1953-04-03T06:03:09.414Z"
+												},
+												{
+													"key": "endDate",
+													"value": "1953-04-03T06:03:09.414Z"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"consequat tempor cillum id\",\n  \"isSuccessful\": true,\n  \"createdOn\": \"2010-04-28T18:53:04.605Z\",\n  \"updatedOn\": \"2009-02-23T18:25:25.898Z\",\n  \"id\": -75369666,\n  \"customerId\": 76244843,\n  \"totalAmount\": 73575756.64876896,\n  \"orderItems\": [\n    {\n      \"id\": -5167941,\n      \"createdOn\": \"1944-11-23T19:22:40.441Z\",\n      \"updatedOn\": \"2006-10-18T03:09:50.543Z\",\n      \"bookId\": 47396345,\n      \"quantity\": 27553291\n    },\n    {\n      \"id\": -91676783,\n      \"createdOn\": \"1974-05-17T21:54:26.432Z\",\n      \"updatedOn\": \"1975-04-18T16:58:05.574Z\",\n      \"bookId\": 53136901,\n      \"quantity\": 5115782\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "/api/v1/Statistics/GetMonthlyStatisticsByCustomerId/:customerId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Statistics/GetMonthlyStatisticsByCustomerId/:customerId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Statistics",
+								"GetMonthlyStatisticsByCustomerId",
+								":customerId"
+							],
+							"variable": [
+								{
+									"key": "customerId",
+									"value": "-6038455",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Statistics/GetMonthlyStatisticsByCustomerId/:customerId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Statistics",
+										"GetMonthlyStatisticsByCustomerId",
+										":customerId"
+									],
+									"variable": [
+										{
+											"key": "customerId",
+											"value": "-6038455",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"consequat tempor cillum id\",\n  \"isSuccessful\": true,\n  \"createdOn\": \"2010-04-28T18:53:04.605Z\",\n  \"updatedOn\": \"2009-02-23T18:25:25.898Z\",\n  \"id\": -75369666,\n  \"customerId\": 76244843,\n  \"totalAmount\": 73575756.64876896,\n  \"orderItems\": [\n    {\n      \"id\": -5167941,\n      \"createdOn\": \"1944-11-23T19:22:40.441Z\",\n      \"updatedOn\": \"2006-10-18T03:09:50.543Z\",\n      \"bookId\": 47396345,\n      \"quantity\": 27553291\n    },\n    {\n      \"id\": -91676783,\n      \"createdOn\": \"1974-05-17T21:54:26.432Z\",\n      \"updatedOn\": \"1975-04-18T16:58:05.574Z\",\n      \"bookId\": 53136901,\n      \"quantity\": 5115782\n    }\n  ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	]
+}
