@@ -25,7 +25,7 @@ This documentation provides detailed information about the **ReadingIsGood** pro
 
 ## Installation
 
-1. Navigate to the project directory and execute the following commands in order to start the project:
+1. Navigate to the project root (ReadingIsGood) directory and execute the following commands in order to start the project:
 ````
 docker-compose up -d
 ````
