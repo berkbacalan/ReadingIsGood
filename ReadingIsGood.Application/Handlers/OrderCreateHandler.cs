@@ -44,7 +44,7 @@ public class OrderCreateHandler : IRequestHandler<OrderCreateCommand, OrderRespo
                     return new OrderResponse { IsSuccessful = false, Error = "Customer could not found." };
                 }
 
-                double totalAmount = 0;
+                decimal totalAmount = 0;
                 foreach (var orderItem in request.OrderItems)
                 {
                     if (orderItem.Quantity <= 0)
@@ -58,7 +58,7 @@ public class OrderCreateHandler : IRequestHandler<OrderCreateCommand, OrderRespo
                     var book = await _bookRepository.GetByIdAsync(orderItem.BookId);
                     if (book is null)
                     {
-                        return new OrderResponse { IsSuccessful = false, Error = $"Could not find book with id: {orderItem.BookId}" };
+                        return new OrderResponse { IsSuccessful = false, Error = $"Could not find book with id: {orderItem.BookId}." };
                     }
                     if (book.StockQuantity < orderItem.Quantity)
                     {
@@ -82,7 +82,7 @@ public class OrderCreateHandler : IRequestHandler<OrderCreateCommand, OrderRespo
                     var book = await _bookRepository.GetByIdAsync(orderItem.BookId);
                     if (book is null)
                     {
-                        return new OrderResponse { IsSuccessful = false, Error = $"Could not find book with id: {orderItem.BookId}" };
+                        return new OrderResponse { IsSuccessful = false, Error = $"Could not find book with id: {orderItem.BookId}." };
                     }
                     book.StockQuantity -= orderItem.Quantity;
                     await _bookRepository.UpdateAsync(book);

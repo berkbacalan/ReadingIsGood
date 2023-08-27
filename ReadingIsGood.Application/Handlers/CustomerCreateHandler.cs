@@ -43,7 +43,7 @@ public class CustomerCreateHandler : IRequestHandler<CustomerCreateCommand, Cust
         }
         catch (Exception e)
         {
-            return new CustomerResponse { IsSuccessful = false, Error = $"Unknown error occured. Error: {e}" };
+            return new CustomerResponse { IsSuccessful = false, Error = $"Unknown error occured." };
         }
     }
 }

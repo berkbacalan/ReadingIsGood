@@ -26,7 +26,7 @@ public class BookCreateHandler : IRequestHandler<BookCreateCommand, BookResponse
             var bookEntity = _mapper.Map<Book>(request);
             if (bookEntity == null)
             {
-                return new BookResponse { IsSuccessful = false, Error = "Entity could not mapped" };
+                return new BookResponse { IsSuccessful = false, Error = "Entity could not mapped." };
             }
 
             var book = await _bookRepository.AddAsync(bookEntity);
@@ -37,7 +37,7 @@ public class BookCreateHandler : IRequestHandler<BookCreateCommand, BookResponse
         }
         catch (Exception e)
         {
-            return new BookResponse { IsSuccessful = false, Error = $"Unknown error occured. Error: {e}" };
+            return new BookResponse { IsSuccessful = false, Error = $"Unknown error occured." };
         }
     }
 }
