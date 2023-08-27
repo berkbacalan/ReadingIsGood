@@ -6,4 +6,7 @@
     &lt;TestId&gt;NUnit3x::D03FD104-6FAA-9701-CF2C-999019A607C3::net7.0::tests.DomainTests.BookTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a15cdccc_002D6a21_002D4d27_002D8759_002D677141029577/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="BookUpdateHandlerTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\Berk\Desktop\ReadingIsGood\tests" Presentation="&amp;lt;tests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>

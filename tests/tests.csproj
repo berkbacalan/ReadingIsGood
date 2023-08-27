@@ -19,11 +19,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="ApiTests\" />
       <Folder Include="InfrastructureTests\" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ReadingIsGood.Api\ReadingIsGood.Api.csproj" />
       <ProjectReference Include="..\ReadingIsGood.Application\ReadingIsGood.Application.csproj" />
       <ProjectReference Include="..\ReadingIsGood.Domain\ReadingIsGood.Domain.csproj" />
     </ItemGroup>

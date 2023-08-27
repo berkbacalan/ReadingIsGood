@@ -6,7 +6,7 @@ using ReadingIsGood.Application.Responses;
 using ReadingIsGood.Domain.Entities;
 using ReadingIsGood.Domain.Repositories;
 
-namespace ReadingIsGood.Tests.ApplicationTests.Handlers
+namespace tests.ApplicationTests
 {
     [SetCulture("en-EN")]
     [TestFixture]
