@@ -13,10 +13,15 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase(databaseName:
-                "InMemoryDb"),
-            ServiceLifetime.Singleton,
-            ServiceLifetime.Singleton);
+        // For testing in device RAM
+        // services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase(databaseName:
+        //         "InMemoryDb"),
+        //     ServiceLifetime.Singleton,
+        //     ServiceLifetime.Singleton);
+
+        services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(
+            configuration.GetConnectionString("SqlServerDbConnection"),
+            b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)), ServiceLifetime.Singleton);
 
         services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
         services.AddTransient<IOrderRepository, OrderRepository>();
