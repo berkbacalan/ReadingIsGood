@@ -22,7 +22,7 @@ public static class DependencyInjection
         services.AddTransient<IOrderRepository, OrderRepository>();
         services.AddTransient<ICustomerRepository, CustomerRepository>();
         services.AddTransient<IBookRepository, BookRepository>();
-        
+
         return services;
     }
 }
