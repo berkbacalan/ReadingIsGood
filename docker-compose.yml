@@ -11,10 +11,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    hostname: localhost
+    hostname: web
     ports:
       - "80:80"
     depends_on:
       - db
     environment:
-      ConnectionStrings__SqlServerDbConnection: "server=db;Database=ReadingIsGoodDb;User Id=admin;Password=Str0ngP@ss!2023;"
+      ConnectionStrings__SqlServerDbConnection: "server=db;Database=ReadingIsGoodDb;User Id=sa;Password=Str0ngP@ss!2023;TrustServerCertificate=true;"
