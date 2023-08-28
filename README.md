@@ -34,7 +34,7 @@ docker-compose up -d
 
 ## Usage
 
-1. Open your browser and navigate to [http://localhost/swagger/index.html](http://localhost).
+1. Open your browser and navigate to [http://localhost/swagger/index.html](http://localhost/swagger/index.html).
 2. Create a book with `api/v1/Book/Create` endpoint.
 3. Create a customer with `api/v1/Customer/Create` endpoint.
 4. Create orders by adding books which you already created to orderList via `api/v1/Order/Create`.
